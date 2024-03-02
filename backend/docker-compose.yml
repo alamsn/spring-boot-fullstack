@@ -1,0 +1,43 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: alamsn317
+      POSTGRES_PASSWORD: alamsn317
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    restart: unless-stopped
+    #    healthcheck:
+    #      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+    #      interval: 30s
+    #      timeout: 60s
+    #      retries: 5
+    #      start_period: 80s
+
+  alamsn-api:
+    container_name: alamsn-api
+    image: alamsn/alamsn-api:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/alamsn317
+    ports:
+      - "8080:8080"
+    networks:
+      - db
+    depends_on:
+      - db
+    restart: unless-stopped
+    #    command:
+    #      - --spring.datasource.url=jdbc:postgresql://db:5432/alamsn317
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:

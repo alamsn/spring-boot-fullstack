@@ -1,0 +1,2 @@
+ALTER TABLE customer
+    ALTER COLUMN id TYPE INT;

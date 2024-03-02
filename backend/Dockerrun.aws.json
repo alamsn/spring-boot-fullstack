@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "alamsn-api",
+      "image": "alamsn/alamsn-api:latest",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "jdbc:postgresql://awseb-e-fmy5cysg3n-stack-awsebrdsdatabase-0ghbplqs4f4j.c9u2woqckzt9.ap-southeast-1.rds.amazonaws.com:5432/alamsn317"
+        }
+      ]
+    }
+  ]
+}
