@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "alamsn-api",
-      "image": "alamsn/alamsn-api:04.03.2024.02.13.57",
+      "image": "alamsn/alamsn-api:04.03.2024.02.21.24",
       "essential": true,
       "memory": 512,
       "portMappings": [
