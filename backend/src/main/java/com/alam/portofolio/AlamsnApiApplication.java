@@ -3,24 +3,18 @@ package com.alam.portofolio;
 import com.alam.portofolio.customer.Customer;
 import com.alam.portofolio.customer.CustomerRepository;
 import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
-public class PortofolioApplication {
+public class AlamsnApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PortofolioApplication.class, args);
+        SpringApplication.run(AlamsnApiApplication.class, args);
     }
 
     @Bean
