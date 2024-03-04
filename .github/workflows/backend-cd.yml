@@ -30,13 +30,13 @@ jobs:
           --health-retries 5
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Slack Message - Deployment Start
         run: >
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Deployment Started"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      - uses: actions/checkout@v4
 
       - uses: actions/setup-java@v4
         with:
