@@ -13,9 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>portofolio</name>
     <description>portofolio</description>
-    <organization>
-        <name>alamsn</name>
-    </organization>
 
     <properties>
         <java.version>17</java.version>
@@ -167,7 +164,7 @@
                         </platforms>
                     </from>
                     <to>
-                        <image>docker.io/alamsn/alamsn-api:${docker.image.tag}</image>
+                        <image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
                         <tags>
                             <tag>latest</tag>
                         </tags>
