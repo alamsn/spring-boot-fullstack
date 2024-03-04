@@ -167,7 +167,7 @@
                         </platforms>
                     </from>
                     <to>
-                        <image>docker.io/${project.organization.name}/${project.artifactId}:${docker.image.tag}</image>
+                        <image>docker.io/alamsn/alamsn-api:${docker.image.tag}</image>
                         <tags>
                             <tag>latest</tag>
                         </tags>
