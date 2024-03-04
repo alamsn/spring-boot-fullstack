@@ -9,7 +9,7 @@ public class PingPongController {
     private record PingPong(String result) {}
 
     @GetMapping("/ping")
-    public PingPong getPingPong() {
+    private PingPong getPingPong() {
         return new PingPong("Pongz");
     }
 }
