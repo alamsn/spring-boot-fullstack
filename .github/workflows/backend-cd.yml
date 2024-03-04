@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: backend
     services:
       postgres:
         image: postgres:16.1
@@ -32,7 +32,6 @@ jobs:
     steps:
       - name: Slack Message - Deployment Start
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Deployment Started"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -57,7 +56,6 @@ jobs:
 
       - name: Slack Message - Build with Maven
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Building with Maven"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -67,7 +65,6 @@ jobs:
 
       - name: Slack Message - Image seccessfully push to dockerhub
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Image tag ${{steps.build-number.outputs.BUILD_NUMBER}} pushed to dockerhub"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -82,7 +79,6 @@ jobs:
 
       - name: Slack Message - Start Deploy to Elastic Beanstalk
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Starting deployment to Elastic Beanstalk"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -101,7 +97,6 @@ jobs:
 
       - name: Slack Message - Commit to repo
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Commiting to repo"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -115,7 +110,6 @@ jobs:
 
       - name: Slack Message - Deploy success
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":":deployment-train: Deployment and commit completed ${{ secrets.EB_ENVIRONMENT_URL }}"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -123,7 +117,6 @@ jobs:
       - name: Slack Message - Status
         if: always()
         run: >
-          cd ./backend &&
           curl -X POST -H 'Content-type: application/json' 
           --data '{"text":"Job Status ${{ job.status }}"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
