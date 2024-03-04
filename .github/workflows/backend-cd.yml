@@ -99,5 +99,5 @@ jobs:
       - name: Slack Message - Deploy success
         run: >
           curl -X POST -H 'Content-type: application/json' 
-          --data '{"text":":deployment-train: Deployment and commit completed ${{ EB_ENVIRONMENT_URL \nJob Status Success}}"}' 
+          --data '{"text":":deployment-train: Deployment and commit completed ${{ EB_ENVIRONMENT_URL }} \nJob Status Success"}' 
           ${{ secrets.SLACK_WEBHOOK_URL }}
