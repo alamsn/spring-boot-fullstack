@@ -1,5 +1,6 @@
 package com.alam.portofolio.customer;
 
+import com.alam.portofolio.util.Constants;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,11 +15,11 @@ public class CustomerListDataAccessService implements CustomerDAO{
     static {
         customerList = new ArrayList<>();
         Customer alam = new Customer(
-                1, "Alam", "alam@gmail.com", 24
-        );
+                1, "Alam", "alam@gmail.com", 24,
+            Constants.Gender.MALE);
         Customer albert = new Customer(
-                2, "Albert", "albert@gmail.com", 27
-        );
+                2, "Albert", "albert@gmail.com", 27,
+            Constants.Gender.MALE);
         customerList.add(alam);
         customerList.add(albert);
     }

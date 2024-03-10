@@ -2,6 +2,7 @@ package com.alam.portofolio;
 
 import com.alam.portofolio.customer.Customer;
 import com.alam.portofolio.customer.CustomerRepository;
+import com.alam.portofolio.util.Constants;
 import com.github.javafaker.Faker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,8 +28,8 @@ public class AlamsnApiApplication {
             Customer customer = new Customer(
                 firstName + " " + lastName,
                 firstName.toLowerCase() + "." + lastName.toLowerCase() + "@gmail.com",
-                random.nextInt(70)
-            );
+                random.nextInt(17,70),
+                random.nextInt(2) % 2 == 0 ? Constants.Gender.FEMALE : Constants.Gender.MALE);
             customerRepository.save(customer);
         };
     }

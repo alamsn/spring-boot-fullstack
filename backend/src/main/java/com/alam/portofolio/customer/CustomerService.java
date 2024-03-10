@@ -3,6 +3,7 @@ package com.alam.portofolio.customer;
 import com.alam.portofolio.exceptions.DuplicateResourceException;
 import com.alam.portofolio.exceptions.RequestValidationException;
 import com.alam.portofolio.exceptions.ResourceNotFoundException;
+import com.alam.portofolio.util.Constants;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,8 @@ public class CustomerService {
         Customer customer = new Customer(
             customerRegistrationRequest.name(),
             customerRegistrationRequest.email(),
-            customerRegistrationRequest.age()
-        );
+            customerRegistrationRequest.age(),
+			Constants.Gender.MALE);
         customerDAO.insertCustomer(customer);
     }
 
@@ -53,8 +54,8 @@ public class CustomerService {
         Customer updateCustomer = new Customer(
                 customerUpdateRequest.name(),
                 customerUpdateRequest.email(),
-                customerUpdateRequest.age()
-            );
+                customerUpdateRequest.age(),
+			Constants.Gender.MALE);
             updateCustomer.setId(customer.getId());
             if (!customer.equals(updateCustomer)) {
                 if (!customerDAO.existsCustomerWithEmail(updateCustomer.getEmail())

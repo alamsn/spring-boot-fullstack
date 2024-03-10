@@ -1,5 +1,6 @@
 package com.alam.portofolio.customer;
 
+import com.alam.portofolio.util.Constants;
 import com.github.javafaker.Faker;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterEach;
@@ -40,8 +41,8 @@ class CustomerJPADataAccessServiceTest {
             firstName + " " + lastName,
             firstName.toLowerCase() + "." + lastName.toLowerCase() + "_"
                 + UUID.randomUUID() + "@gmail.com",
-            random.nextInt(17,70)
-        );
+            random.nextInt(17,70),
+			Constants.Gender.MALE);
     }
 
     @Test

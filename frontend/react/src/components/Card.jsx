@@ -35,7 +35,7 @@ export default function CardWithImage({ id, name, email, gender }) {
                 <Flex justify={'center'} mt={-12}>
                     <Avatar
                         size={'xl'}
-                        src={`https://randomuser.me/api/portraits/med/${"men"}/${id}.jpg`}
+                        src={`https://randomuser.me/api/portraits/med/${ gender === 'MALE' ? 'men' : 'women' }/${id}.jpg`}
                         css={{
                             border: '2px solid white',
                         }}
@@ -52,9 +52,13 @@ export default function CardWithImage({ id, name, email, gender }) {
 
                     <Stack direction={'row'} justify={'center'} spacing={6}>
                         <Stack spacing={0} align={'center'}>
-                            <Text fontWeight={600}>{id*27/5}k</Text>
                             <Text fontSize={'sm'} color={'gray.500'}>
-                                Followers
+                               ID - {id}
+                            </Text>
+                        </Stack>
+                        <Stack spacing={0} align={'center'}>
+                            <Text fontSize={'sm'} color={'gray.500'}>
+                                {gender}
                             </Text>
                         </Stack>
                     </Stack>

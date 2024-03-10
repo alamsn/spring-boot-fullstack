@@ -3,6 +3,7 @@ package com.alam.portofolio.customer;
 import com.alam.portofolio.exceptions.DuplicateResourceException;
 import com.alam.portofolio.exceptions.RequestValidationException;
 import com.alam.portofolio.exceptions.ResourceNotFoundException;
+import com.alam.portofolio.util.Constants;
 import com.github.javafaker.Faker;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,9 +12,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.ApplicationContext;
 
 import java.util.Optional;
 import java.util.Random;
@@ -46,8 +44,8 @@ class CustomerServiceTest {
             firstName + " " + lastName,
             firstName.toLowerCase() + "." + lastName.toLowerCase() + "_"
                 + UUID.randomUUID() + "@gmail.com",
-            random.nextInt(17,70)
-        );
+            random.nextInt(17,70),
+			Constants.Gender.MALE);
     }
 
     @Test
@@ -94,8 +92,9 @@ class CustomerServiceTest {
         // Given
         Integer customerId = 10;
         String email = "alam@gmail.com";
+        Constants.Gender gender = Constants.Gender.MALE;
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-            "alam", email, 19
+            "alam", email, 19, gender
         );
         when(customerDAO.existsCustomerWithEmail(email)).thenReturn(false);
 
@@ -117,8 +116,9 @@ class CustomerServiceTest {
     void addCustomerFails() {
         // Given
         String email = "alam@gmail.com";
+        Constants.Gender gender = Constants.Gender.MALE;
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-            "alam", email, 19
+            "alam", email, 19, gender
         );
 
         // When
@@ -166,8 +166,9 @@ class CustomerServiceTest {
         // Given
         Integer customerId = 10;
         String email = "alam@gmail.com";
+        Constants.Gender gender = Constants.Gender.MALE;
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-            "alam", email, 19
+            "alam", email, 19, gender
         );
 
         // When
@@ -182,7 +183,7 @@ class CustomerServiceTest {
         Integer customerId = 1;
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25);
 
-        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20);
+        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);
 
         when(customerDAO.selectCustomerById(customerId)).thenReturn(Optional.of(existingCustomer));
@@ -201,7 +202,7 @@ class CustomerServiceTest {
         Integer customerId = 1;
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25);
 
-        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20);
+        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);
 
         when(customerDAO.selectCustomerById(customerId)).thenReturn(Optional.of(existingCustomer));
@@ -221,7 +222,7 @@ class CustomerServiceTest {
         Integer customerId = 1;
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("oldName", "oldEmail@gmail.com", 20);
 
-        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20);
+        Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);
 
         when(customerDAO.selectCustomerById(customerId)).thenReturn(Optional.of(existingCustomer));

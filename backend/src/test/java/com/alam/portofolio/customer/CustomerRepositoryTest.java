@@ -1,6 +1,7 @@
 package com.alam.portofolio.customer;
 
 import com.alam.portofolio.AbsctractTestcontainers;
+import com.alam.portofolio.util.Constants;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,8 +39,8 @@ class CustomerRepositoryTest extends AbsctractTestcontainers {
             firstName + " " + lastName,
             firstName.toLowerCase() + "." + lastName.toLowerCase() + "_"
                 + UUID.randomUUID() + "@gmail.com",
-            random.nextInt(17,70)
-        );
+            random.nextInt(17,70),
+			Constants.Gender.MALE);
     }
 
     @NotNull

@@ -12,6 +12,7 @@ const App = () => {
         setIsLoading(true)
         getCustomer().then(response => {
             setCustomers(response.data)
+            console.log(response.data)
         }).catch(err => {
             console.log(err)
         }).finally(() => {

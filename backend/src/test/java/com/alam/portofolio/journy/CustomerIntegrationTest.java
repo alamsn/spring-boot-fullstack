@@ -2,6 +2,7 @@ package com.alam.portofolio.journy;
 
 import com.alam.portofolio.customer.Customer;
 import com.alam.portofolio.customer.CustomerRegistrationRequest;
+import com.alam.portofolio.util.Constants;
 import com.github.javafaker.Faker;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
@@ -35,8 +36,8 @@ public class CustomerIntegrationTest {
             firstName + " " + lastName,
             firstName.toLowerCase() + "." + lastName.toLowerCase() + "_"
                 + UUID.randomUUID() + "@gmail.com",
-            random.nextInt(17,70)
-        );
+            random.nextInt(17,70),
+			Constants.Gender.MALE);
     }
 
     @Test
@@ -44,7 +45,7 @@ public class CustomerIntegrationTest {
         String CUSTOMER_URI = "/api/v1/customers";
         Customer customer = getCustomer();
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-            customer.getName(), customer.getEmail(), customer.getAge()
+            customer.getName(), customer.getEmail(), customer.getAge(), customer.getGender()
         );
 
         // Send a post request
@@ -100,7 +101,7 @@ public class CustomerIntegrationTest {
         String CUSTOMER_URI = "/api/v1/customers";
         Customer customer = getCustomer();
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                customer.getName(), customer.getEmail(), customer.getAge()
+                customer.getName(), customer.getEmail(), customer.getAge(), customer.getGender()
         );
 
         // Send a post request
@@ -153,7 +154,7 @@ public class CustomerIntegrationTest {
         String CUSTOMER_URI = "/api/v1/customers";
         Customer customer = getCustomer();
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                customer.getName(), customer.getEmail(), customer.getAge()
+                customer.getName(), customer.getEmail(), customer.getAge(), customer.getGender()
         );
 
         // Send a post request
@@ -192,7 +193,10 @@ public class CustomerIntegrationTest {
         customer.setId(id);
 
         CustomerRegistrationRequest updateRequest = new CustomerRegistrationRequest(
-                customer.getName() + "mod", customer.getEmail() + "zzz", customer.getAge()
+            customer.getName() + "mod",
+            customer.getEmail() + "zzz",
+            customer.getAge(),
+            customer.getGender()
         );
 
         // update customer
