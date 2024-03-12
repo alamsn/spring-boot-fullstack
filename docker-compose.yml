@@ -34,6 +34,18 @@ services:
     restart: unless-stopped
     #    command:
     #      - --spring.datasource.url=jdbc:postgresql://db:5432/alamsn317
+  alamsn-react:
+    container_name: alamsn-react
+    image: alamsn/alamsn-react:latest
+    build:
+      context: frontend/react
+      args:
+        api_base_url: http://localhost:8088
+    ports:
+      - "3000:5173"
+    depends_on:
+      - alamsn-api
+    restart: unless-stopped
 
 networks:
   db:

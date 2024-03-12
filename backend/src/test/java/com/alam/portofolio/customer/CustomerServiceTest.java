@@ -181,7 +181,7 @@ class CustomerServiceTest {
     void updateCustomerSuccess() {
         // Given
         Integer customerId = 1;
-        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25);
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25, Constants.Gender.MALE);
 
         Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);
@@ -200,7 +200,7 @@ class CustomerServiceTest {
     void updateCustomerDuplicateEmail() {
         // Given
         Integer customerId = 1;
-        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25);
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("newName", "newEmail@gmail.com", 25, Constants.Gender.MALE);
 
         Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);
@@ -220,7 +220,7 @@ class CustomerServiceTest {
     void updateCustomerNoChanges() {
         // Given
         Integer customerId = 1;
-        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("oldName", "oldEmail@gmail.com", 20);
+        CustomerUpdateRequest updateRequest = new CustomerUpdateRequest("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
 
         Customer existingCustomer = new Customer("oldName", "oldEmail@gmail.com", 20, Constants.Gender.MALE);
         existingCustomer.setId(customerId);

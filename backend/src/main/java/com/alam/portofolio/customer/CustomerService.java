@@ -55,7 +55,8 @@ public class CustomerService {
                 customerUpdateRequest.name(),
                 customerUpdateRequest.email(),
                 customerUpdateRequest.age(),
-			Constants.Gender.MALE);
+                customerUpdateRequest.gender()
+			);
             updateCustomer.setId(customer.getId());
             if (!customer.equals(updateCustomer)) {
                 if (!customerDAO.existsCustomerWithEmail(updateCustomer.getEmail())

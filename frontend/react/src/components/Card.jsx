@@ -12,12 +12,15 @@ import {
     Button,
     useColorModeValue,
 } from '@chakra-ui/react'
+import CustomerDeleteButtonWithAlert from "./CustomerDeleteButtonWithAlert.jsx";
+import CustomerUpdateDrawerForm from "./CustomerUpdateDrawerForm.jsx";
 
-export default function CardWithImage({ id, name, email, gender }) {
+export default function CardWithImage({ id, name, email, age, gender, fetchCustomers }) {
     return (
         <Center py={6}>
             <Box
-                maxW={'300px'}
+                minW={'250px'}
+                maxW={'250px'}
                 w={'full'}
                 bg={useColorModeValue('white', 'gray.800')}
                 boxShadow={'2xl'}
@@ -63,18 +66,20 @@ export default function CardWithImage({ id, name, email, gender }) {
                         </Stack>
                     </Stack>
 
-                    <Button
-                        w={'full'}
-                        mt={8}
-                        bg={useColorModeValue('#151f21', 'gray.900')}
-                        color={'white'}
-                        rounded={'md'}
-                        _hover={{
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'lg',
-                        }}>
-                        Details
-                    </Button>
+                    <Stack direction={"row"} spacing={6} justify={"center"}>
+                        <CustomerUpdateDrawerForm
+                            id={id}
+                            name={name}
+                            email={email}
+                            age={age}
+                            gender={gender}
+                            fetchCustomers={fetchCustomers}
+                        />
+                        <CustomerDeleteButtonWithAlert
+                            id={id}
+                            fetchCustomers={fetchCustomers}
+                        />
+                    </Stack>
                 </Box>
             </Box>
         </Center>
