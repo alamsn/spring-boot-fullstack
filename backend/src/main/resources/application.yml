@@ -9,7 +9,7 @@ cors:
 
 spring:
   datasource:
-    url: jdbc:postgresql://awseb-e-fpsukpc8eq-stack-awsebrdsdatabase-zutvabdtsbeu.c9u2woqckzt9.ap-southeast-1.rds.amazonaws.com:5432/alamsn317
+    url: jdbc:postgresql://localhost:5432/alamsn317
     driver-class-name: org.postgresql.Driver
     username: alamsn317
     password: alamsn317
