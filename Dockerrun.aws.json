@@ -17,7 +17,7 @@
       "name": "alamsn-api",
       "image": "alamsn/alamsn-api:12.03.2024.00.22.29",
       "essential": true,
-      "memory": 512,
+      "memory": 256,
       "portMappings": [
         {
           "hostPort": 8080,
@@ -27,7 +27,7 @@
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://awseb-e-fmy5cysg3n-stack-awsebrdsdatabase-0ghbplqs4f4j.c9u2woqckzt9.ap-southeast-1.rds.amazonaws.com:5432/alamsn317"
+          "value": "jdbc:postgresql://awseb-e-fpsukpc8eq-stack-awsebrdsdatabase-zutvabdtsbeu.c9u2woqckzt9.ap-southeast-1.rds.amazonaws.com:5432/alamsn317"
         }
       ]
     }
