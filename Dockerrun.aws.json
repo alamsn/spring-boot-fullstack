@@ -15,7 +15,7 @@
     },
     {
       "name": "alamsn-api",
-      "image": "alamsn/alamsn-api:12.03.2024.00.22.29",
+      "image": "alamsn/alamsn-api:13.03.2024.08.30.01",
       "essential": true,
       "memory": 256,
       "portMappings": [
