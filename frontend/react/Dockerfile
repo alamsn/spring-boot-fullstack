@@ -5,6 +5,6 @@ COPY package*.json .
 RUN npm i --silent
 COPY . .
 RUN echo "VITE_API_BASE_URL=${api_base_url}" > .env
-# ENV VITE_API_BASE_URL=${api_base_url}
+# ENV VITE_API_BASE_URL=http://alamsn-apps.ap-southeast-1.elasticbeanstalk.com:8080
 EXPOSE 5173
 CMD ["npm", "run", "dev"]

@@ -19,6 +19,22 @@ services:
     #      timeout: 60s
     #      retries: 5
     #      start_period: 80s
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - db
+    restart: unless-stopped
+    depends_on:
+      - db
 
   alamsn-api:
     container_name: alamsn-api
@@ -53,3 +69,4 @@ networks:
 
 volumes:
   db:
+  pgadmin:
