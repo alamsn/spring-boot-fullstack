@@ -33,7 +33,7 @@ const App = () => {
                     thickness='4px'
                     speed='0.65s'
                     emptyColor='gray.200'
-                    color='green.500'
+                    color='red.500'
                     size='xl'
                 />
             ) : (
