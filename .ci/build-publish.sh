@@ -4,8 +4,8 @@
 : "${TAG:?TAG not set or empty}"
 
 # Build image Docker menggunakan buildx
-docker buildx build \
-  --platform=linux/amd64,linux/arm64 \
+docker build \
+  --platform=linux/amd64 \
   -t "${USERNAME}/${REPO}:${TAG}" \
   -t "${USERNAME}/${REPO}:latest" \
   . \
