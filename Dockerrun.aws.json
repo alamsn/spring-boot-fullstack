@@ -21,7 +21,7 @@
     },
     {
       "name": "alamsn-react",
-      "image": "alamsn/alamsn-react:latest",
+      "image": "alamsn/alamsn-react:17.03.2024.07.35.45",
       "essential": true,
       "memory": 256,
       "portMappings": [
